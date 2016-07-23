@@ -3,13 +3,7 @@ package cctools
 import "log"
 import "encoding/json"
 
-func Reverse(s string) string {
-	r := []rune(s)
-	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
-	}
-	return string(r)
-}
+
 //Conversion Functions
 //JSON
 func ClauseToJSON(c Clause) []byte {
@@ -49,23 +43,23 @@ func ReturnText(c Clause) string {
 //Creation of Document struct, including corresponding functions
 
 type Document struct {
-	id 			string
-	formNumber	int
-	fornName	string
-	clauses		[]Clause
+	Id 			string
+	FormNumber	int
+	FornName	string
+	Clauses		[]Clause
 }
 
 func NumberOfClauses(d Document) int {
-	return len(d.clauses)
+	return len(d.Clauses)
 }
 
 //Creation of Transaction struct including corresponding functions
 type Transaction struct {
-	id 			string
-	name 		string
-	documents 	[]Document
-	owner		string
-	users		[]string
-	private		bool
+	Id 			string
+	Name 		string
+	Documents 	[]Document
+	Owner		string
+	Users		[]string
+	Private		bool
 
 }
