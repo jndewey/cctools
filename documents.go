@@ -8,6 +8,7 @@ type Document struct {
 	FormNumber	int			`json:"formNumber"`
 	FormName	string		`json:"formName"`
 	Clauses		[]Clause 	`json:"clause"`
+	Parties		[]Party		`json:"party"`
 }
 
 func Id(d Document) string {
@@ -49,3 +50,17 @@ func (d *Document) SetFormNumber(n int) {
 func Length(d Document) int {
 	return len(d.Clauses)
 }
+
+func (d *Document) AddClause(c Clause) {
+	newClause := c
+	oldClauses := d.Clauses
+	newClauses := append(oldClauses, newClause) 
+	d.Clauses = newClauses
+}
+
+/* func (d *Document) DeleteClause(c Clause) {
+	newClause := c
+	oldClauses := d.Clauses
+	newClauses := append(oldClauses, newClause) 
+	d.Clauses = newClauses
+} */

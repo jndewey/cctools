@@ -24,3 +24,12 @@ func Text(c Clause) string {
 func (c *Clause) SetText(t string) {
 	c.Text = t
 }
+
+
+//NOTE: This needs to be worked out because a changed clause will not be reflected in an existing documents because Clauses are a 
+// type value rather than pointers to Clauses.  So the edited clause is not sharing data with the Clause that is an attribute
+// in the Document object. 
+
+func (c *Clause) EditText(t string) {
+	c.Text = t
+}
