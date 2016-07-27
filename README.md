@@ -25,4 +25,6 @@ Setters and Getters
 
 Conversion Tools for JSON, YAML and XML.
 
+Ability to convert text or html files into formatted DOCX or PDF files
+
 
