@@ -72,6 +72,7 @@ func BftPty(c Clause) string {
 }
 
 //Setter for Benefit attribute
+//Generally, the benefitted party has the right to waive a condition and proceed with the transaction
 
 func (c *Clause) SetBftPty(b string) {
 	c.BftPty = b
@@ -84,3 +85,5 @@ func (c *Clause) SetBftPty(b string) {
 func (c *Clause) EditText(t string) {
 	c.Text = t
 }
+
+
