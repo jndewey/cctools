@@ -22,9 +22,11 @@ func JSONtoClause(data []byte) Clause {
 	return c
 }
 
-func JSONSave(data []byte) {
+//Read and write individual JSON clause files
+
+func SaveJSONClause(data []byte, filename string) {
 	file := data
-	jsonFile, err := os.Create("./data.json") // replace with dynamic value
+	jsonFile, err := os.Create("./"+filename+".json")
 
 	if err !=nil {
 		fmt.Println(err)
@@ -34,7 +36,7 @@ func JSONSave(data []byte) {
 	jsonFile.Close()
 }
 
-func LoadJSON(filename string) []byte {
+func LoadJSONClause(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
 	if err !=nil {
 		fmt.Println(err)
@@ -58,3 +60,24 @@ func JSONtoDocument(data []byte) Document {
 	return d
 }
 
+//Read and write entire JSON Document files
+
+func SaveJSONDocument(data []byte, filename string) {
+	file := data
+	jsonFile, err := os.Create("./"+filename+".json")
+
+	if err !=nil {
+		fmt.Println(err)
+	}
+	defer jsonFile.Close()
+	jsonFile.Write(file)
+	jsonFile.Close()
+}
+
+func LoadJSONDocument(filename string) []byte {
+	dat, err := ioutil.ReadFile(filename)
+	if err !=nil {
+		fmt.Println(err)
+	}
+	return dat
+}

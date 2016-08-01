@@ -37,8 +37,8 @@ func (c *Clause) SetText(t string) {
 }
 
 //Getter for Type attribute
-//Initially supported types will be definition, covenant, condition, 
-//representation (includes warranties), information (e.g., notce)
+//Initially supported types will be Definition, Covenant, Condition, 
+//Representation (includes warranties) and Information (e.g., notice)
 
 func Type(c Clause) string {
 	var output = c.Type
