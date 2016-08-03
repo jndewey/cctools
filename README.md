@@ -38,7 +38,7 @@ APIs and documentation for all of the data structures and functionality are in p
 ## Installation and Code Example
 
 In the interim, you can download this package into your GOPATH and import it into your Go programs.  The following code is an example of how to build clauses and combine them to form a document, and then how to convert back and forth between JSON and a native Go struct.
-
+````
 package main 
 
 import "fmt"
@@ -69,7 +69,7 @@ func main() {
 	num := cctools.Length(contractTest)
 	fmt.Println(num)
 }
-
+````
 ## Future Development
 
 We welcome any suggestions, proposed code or any other contributions that others want to make to the project.  We want cctools to develop into a robust tool that serves as the backbone to many other systems that allow a broad range of lawyers (from coding ninjas to total newbies) to leverage a more engineered approach to contract drafting (or as we like to call it, legal engineering).
