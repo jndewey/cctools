@@ -31,11 +31,13 @@ Conversion Tools for JSON, YAML and XML, so that data structures, like a Documen
 
 Ability to convert text or html files into formatted DOCX or PDF files.  For traditional contracting, the data structures will need to be capable of conversion to Word or PDF.
 
-Detailed Documentation is in process.
+## API and Documentation
 
-## Installation and Use
+APIs and documentation for all of the data structures and functionality are in process and will be published as and when completed.
 
-In the interim, you can download this package into your GOPATH and import it into your Go programs.  The following code is an example of how to build a short promissory note.
+## Installation and Code Example
+
+In the interim, you can download this package into your GOPATH and import it into your Go programs.  The following code is an example of how to build clauses and combine them to form a document, and then how to convert back and forth between JSON and a native Go struct.
 
 package main 
 
@@ -67,4 +69,12 @@ func main() {
 	num := cctools.Length(contractTest)
 	fmt.Println(num)
 }
+
+## Future Development
+
+We welcome any suggestions, proposed code or any other contributions that others want to make to the project.  We want cctools to develop into a robust tool that serves as the backbone to many other systems that allow a broad range of lawyers (from coding ninjas to total newbies) to leverage a more engineered approach to contract drafting (or as we like to call it, legal engineering).
+
+## License
+
+MIT License.
 
