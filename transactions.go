@@ -13,5 +13,6 @@ type Transaction struct {
 	Owner		User 		`json:"owner"`
 	Users		[]User 		`json:"user"`
 	Checklist 	Checklist 	`json:"checklist"`
+	Marketing	string		`json:"marketing"`
 }
 

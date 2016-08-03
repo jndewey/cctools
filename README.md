@@ -31,4 +31,38 @@ Conversion Tools for JSON, YAML and XML, so that data structures, like a Documen
 
 Ability to convert text or html files into formatted DOCX or PDF files.  For traditional contracting, the data structures will need to be capable of conversion to Word or PDF.
 
+Detailed Documentation is in process.
+
+In the interim, you can download this package into your GOPATH and import it into your Go programs.  The following code is an example of how to build a short promissory note.
+
+package main 
+
+import "fmt"
+import "github.com/jndewey/cctools" // replace this import path with the correct path to cctools on your system
+
+func main() {
+	//Create a couple of sample clauses
+	var promisePay cctools.Clause
+	promisePay.Name = "Promise to Pay"
+	promisePay.Text = "Maker hereby promises to pay to the order of Payee the Principal Amount, together with Accrued Interest, in accordance with the provisions of this Promissory Note."
+	var governingLaw cctools.Clause
+	governingLaw.Name = "Governing Law"
+	governingLaw.Text = "This Promissory Note shall be governed by the laws of the State of Florida."
+	var venue cctools.Clause
+	venue.Name = "Venue"
+	venue.Text = "Venue will be in Miami-Dade County, Florida"
+	//Now create a document and add your clauses
+	var contractTest cctools.Document
+	contractTest.Clauses = []cctools.Clause {promisePay, venue, governingLaw}
+	//We can now convert that contract to JSON format if we want
+	var converted = cctools.DocumentToJSON(contractTest)
+	fmt.Printf("%s\n", converted)
+	//We can also take JSON format and convert to a Clause struct in Go
+	jdata := []byte(`{"name": "Venue", "text": "Venue will be in Palm Beach County"}`)
+	var structOutput = cctools.JSONtoClause(jdata)
+	fmt.Println(structOutput.Text)
+	//We can also determine the number of clauses in a Document with the Length method
+	num := cctools.Length(contractTest)
+	fmt.Println(num)
+}
 
