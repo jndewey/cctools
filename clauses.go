@@ -3,11 +3,12 @@ package cctools
 //Creation of Clause struct and related methods; with JSON keys incorporated
 
 type Clause struct {
-	Name	string		`json:"name"`
-	Text	string		`json:"text"`
-	Type 	string		`json:"type"`
-	Benefit	bool		`json:"benefit"` //This mainly applies to conditions; and if true, means one party is benefitted by condition
-	BftPty	string		`json:"bftpty"` //If one party benefits from a condition, then BftPty identifies that party
+	Name		string		`json:"name"`
+	Text		string		`json:"text"`
+	Description	string 		`json:"description"`
+	Type 		string		`json:"type"`
+	Benefit		bool		`json:"benefit"` //This mainly applies to conditions; and if true, means one party is benefitted by condition
+	BftPty		Party		`json:"bftpty"` //If one or more parties benefit from a condition (to the exclusion of others), then BftPty identifies those parties
 }
 
 //Getter for Name attribute
@@ -66,7 +67,7 @@ func (c *Clause) SetBenefit(b bool) {
 
 //Getter for BftPty attribute
 
-func BftPty(c Clause) string {
+func BftPty(c Clause) Party {
 	var output = c.BftPty
 	return output
 }
@@ -74,7 +75,7 @@ func BftPty(c Clause) string {
 //Setter for Benefit attribute
 //Generally, the benefitted party has the right to waive a condition and proceed with the transaction
 
-func (c *Clause) SetBftPty(b string) {
+func (c *Clause) SetBftPty(b Party) {
 	c.BftPty = b
 }
 

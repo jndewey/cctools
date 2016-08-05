@@ -5,6 +5,7 @@ package cctools
 type Document struct {
 	Id 			string		`json:"id"`
 	Name 		string		`json:"name"`
+	Description	string		`json:"description"`
 	FormNumber	int			`json:"formNumber"`
 	FormName	string		`json:"formName"`
 	Clauses		[]Clause 	`json:"clause"`
@@ -27,6 +28,15 @@ func GetName(d Document) string {
 
 func (d *Document) SetName(n string) {
 	d.Name = n
+}
+
+func Description(d Document) string {
+	var output = d.Description
+	return output
+}
+
+func (d *Document) SetDescription(n string) {
+	d.Description = n
 }
 
 func FormName(d Document) string {
