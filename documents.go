@@ -12,47 +12,49 @@ type Document struct {
 	Parties		[]Party		`json:"party"`
 }
 
-func Id(d Document) string {
+/*
+func (d Document) Id() string {
 	var output = d.Id
 	return output
 }
+*/
 
 func (d *Document) SetId(n string) {
 	d.Id = n
 }
-
-func GetName(d Document) string {
+/*
+func (d Document) Name() string {
 	var output = d.Name
 	return output
 }
-
+*/
 func (d *Document) SetName(n string) {
 	d.Name = n
 }
-
-func Description(d Document) string {
+/*
+func (d Document) Description() string {
 	var output = d.Description
 	return output
 }
-
+*/
 func (d *Document) SetDescription(n string) {
 	d.Description = n
 }
-
-func FormName(d Document) string {
+/*
+func (d Document) FormName() string {
 	var output = d.FormName
 	return output
 }
-
+*/
 func (d *Document) SetFormName(n string) {
 	d.FormName = n
 }
-
-func FormNumber(d Document) int {
+/*
+func (d Document) FormNumber() int {
 	var output = d.FormNumber
 	return output
 }
-
+*/
 func (d *Document) SetFormNumber(n int) {
 	d.FormNumber = n
 }

@@ -5,11 +5,15 @@ import "encoding/json"
 import "os"
 import "fmt"
 import "io/ioutil"
+// import "github.com/ghodss/yaml" // REMOVE COMMENT WHEN FINISHED WITH YAML TOOLS
 
 
-//JSON Conversion Functions for Individual Clauses
+//Note that these YAML tools all use Go's standard library's JSON package for all functionality 
+//except that JSON inputs and outputs are converted to and from YAML with ghodss/yaml package
 
-func ClauseToJSON(c Clause) []byte {
+//YAML Conversion Functions for Individual Clauses
+
+func ClauseToYAML(c Clause) []byte {
 	data, err := json.MarshalIndent(c, "", "	")
 	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
@@ -17,15 +21,15 @@ func ClauseToJSON(c Clause) []byte {
 	return data
 } 
 
-func JSONtoClause(data []byte) Clause {
+func YAMLtoClause(data []byte) Clause {
 	var c Clause
 	json.Unmarshal(data, &c)
 	return c
 }
 
-//Read and write individual JSON clause files
+//Read and write individual YAML clause files
 
-func SaveJSONClause(data []byte, filename string) {
+func SaveYAMLClause(data []byte, filename string) {
 	file := data
 	jsonFile, err := os.Create("./"+filename+".json")
 
@@ -37,7 +41,7 @@ func SaveJSONClause(data []byte, filename string) {
 	jsonFile.Close()
 }
 
-func LoadJSONClause(filename string) []byte {
+func LoadYAMLClause(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
 	if err !=nil {
 		fmt.Println(err)
@@ -45,9 +49,9 @@ func LoadJSONClause(filename string) []byte {
 	return dat
 }
 
-//JSON Conversion Functions for entire Documents
+//YAML Conversion Functions for entire Documents
 
-func DocumentToJSON(d Document) []byte {
+func DocumentToYAML(d Document) []byte {
 	data, err := json.MarshalIndent(d, "", "    ")
 	if err !=nil {
 		log.Fatalf("JSON conversion failed: %s", err)
@@ -55,15 +59,15 @@ func DocumentToJSON(d Document) []byte {
 	return data
 }
 
-func JSONtoDocument(data []byte) Document {
+func YAMLtoDocument(data []byte) Document {
 	var d Document
 	json.Unmarshal(data, &d)
 	return d
 }
 
-//Read and write entire JSON Document files
+//Read and write entire YAML Document files
 
-func SaveJSONDocument(data []byte, filename string) {
+func SaveYAMLDocument(data []byte, filename string) {
 	file := data
 	jsonFile, err := os.Create("./"+filename+".json")
 
@@ -75,7 +79,7 @@ func SaveJSONDocument(data []byte, filename string) {
 	jsonFile.Close()
 }
 
-func LoadJSONDocument(filename string) []byte {
+func LoadYAMLDocument(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
 	if err !=nil {
 		fmt.Println(err)
