@@ -12,10 +12,66 @@ type User struct {
 	AddressOne	string 		`json:"addressOne"`
 	AddressTwo	string 		`json:"addressTwo"`
 	AddressCity	string 		`json:"adressCity"`
-	AddressSte	string 		`json:"addressSte"`
+	AddressSt	string 		`json:"addressSt"`
 	AddressZip	string 		`json:"addressZip"`
-	Role 		[]string 	`json:"role"`
-	AccessRight []string 	`json:"accessRight"`
+	Roles 		[]string 	`json:"roles"`
+	AccessRights []string 	`json:"accessRights"`
 }
 
-//add methods
+func (u *User) SetId(n string) {
+	u.Id = n
+}
+
+func (u *User) SetFirstName(n string) {
+	u.FirstName = n
+}
+
+func (u *User) SetLastName(n string) {
+	u.LastName = n
+}
+
+func (u *User) SetDigitalId(n string) {
+	u.DigitalID = n
+}
+
+func (u *User) SetEmail(n string) {
+	u.Email = n
+}
+
+func (u *User) SetPhoneNumber(n string) {
+	u.PhoneNumber = n
+}
+
+func (u *User) SetAddressOne(n string) {
+	u.AddressOne = n
+}
+
+func (u *User) SetAddressTwo(n string) {
+	u.AddressTwo = n
+}
+
+func (u *User) SetAddressCity(n string) {
+	u.AddressCity = n
+}
+
+func (u *User) SetAddressSt(n string) {
+	u.AddressSt = n
+}
+
+func (u *User) SetAddressZip(n string) {
+	u.AddressZip = n
+}
+
+func (u *User) AddRole(n string) {
+	newRole := n
+	oldRoles := u.Roles
+	newRoles := append(oldRoles, newRole) 
+	u.Roles = newRoles
+}
+
+func (u *User) AddAccessRight(n string) {
+	newAccessRight := n
+	oldAccessRights := u.AccessRights
+	newAccessRights := append(oldAccessRights, newAccessRight) 
+	u.AccessRights = newAccessRights
+}
