@@ -17,3 +17,5 @@ type User struct {
 	Role 		[]string 	`json:"role"`
 	AccessRight []string 	`json:"accessRight"`
 }
+
+//add methods
