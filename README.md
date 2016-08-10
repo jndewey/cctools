@@ -1,7 +1,7 @@
 # CCTools
 ## contractCode Tools
 
-ContractCode Tools is a Go library, which includes all of the necessary data structures and functions to create, edit and otherwise work with each of the following contractCode structures: Transactions, Contracts and Clauses; all using the Go programming language.  In addition to these structures, cctools also exposes more granular building blocks like users, checklist items and contract parties, among others.  This library is under active development, and changes almost daily, but the approach should become clear early in the development process.  While we had originally intended to build the entire contractCode platform in Javascript, it has become clear to us that Go is a great fit for the long term goals of the project, especially with respect to integration with blockchain protocols.  That said, an important principle guiding the development of cctools is modularity, both in terms of the structure of the library itself, but also in a broader web stack context.  When completed, we envision that cctools could plug into a Node.js, Ruby on Rails or just about any other stack as the model logic behind the contracts.  Our current plans include providing a basic front end UI for lawyers, but our primary focus will be on making cctools the perfect web service that feeds functionality (through standard HTTP APIs) to applications with more robust front ends and database structures.
+ContractCode Tools is a Go library, which includes all of the necessary data structures and functions to create, edit and otherwise work with each of the following contractCode structures: Transactions, Documents and Clauses; all using the Go programming language.  In addition to these structures, cctools also exposes more granular building blocks like Users, Checklists, Items (as in checklist items) and Parties, among others.  This library is under active development, and changes almost daily, but the approach should become clear early in the development process.  While we had originally intended to build the entire contractCode platform in Javascript, it has become clear to us that Go is a great fit for the long term goals of the project, especially with respect to integration with blockchain protocols.  That said, an important principle guiding the development of cctools is modularity, both in terms of the structure of the library itself, but also in a broader web stack context.  When completed, we envision that cctools could plug into a Node.js, Ruby on Rails or just about any other stack as the model logic behind the contracts.  Our current plans include providing a basic front end UI for lawyers, but our primary focus will be on making cctools the perfect web service that feeds functionality (through standard HTTP APIs and/or SDKs) to applications with more robust front ends and database structures.
 
 The contractCode White Paper can be found here: https://docs.google.com/document/d/1Cun8B6V_CbedxrhW26j0ZfAfcuVKtrVOdg9tY7XR8Lw/edit?usp=sharing
 
@@ -25,11 +25,11 @@ Clause -- A clause that can be included within a contract (or Document).
 
 In addition to the above types, each of the following functions and methods are available:
 
-Setters and getters for all values. 
+- Independent setter methods for all values. 
 
-Conversion Tools for JSON, YAML and XML, so that data structures, like a Document, can be converted to and from JSON etc. This is especially useful for storage of items in a database or other file system.
+- Conversion Tools for JSON, YAML and XML, so that data structures, like a Document, can be converted to and from JSON, YAML and XML.  This is especially useful for storage of items in a database or other file systems.  For example, a record in a database that represents a Document can be retrieved and converted into a Document struct in Go.  In this form, a compliance module in the form of a Document method can be run against the Document (which is now in the form of a data structure capable of being passed to a method as a parameter).  In addition, data attributes of the Document (or any other data structure) can be modified before being converted back into a format suitable for storage in a database or other form of persistent storage.
 
-Ability to convert text or html files into formatted DOCX or PDF files.  For traditional contracting, the data structures will need to be capable of conversion to Word or PDF.
+- The ability to convert text or html files into formatted DOCX or PDF files.  When it is necessary to express Documents, Checklists or other data structures in a traditional format, functions are provided that convert data structures into Word or PDF format.
 
 ## API and Documentation
 
