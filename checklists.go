@@ -6,9 +6,14 @@ type Checklist struct {
 	Id	 		string		`json:"id"`
 	Name 		string		`json:"name"`
 	CheckItems	[]Item 		`json:"item"`
-	Documents 	[]Document 	`json:"document"`
-	Owner		string 		`json:"owner"`
+	Owner		User 		`json:"owner"`
 	Users		[]User 		`json:"user"`
+}
+
+func ImportChecklist(filename string) Checklist {
+	data :=LoadFromJSON(filename)
+	newChecklist :=JSONtoChecklist(data)
+    return  newChecklist
 }
 
 func (c *Checklist) SetId(n string) {
@@ -26,15 +31,8 @@ func (c *Checklist) AddItem(i Item) {
 	c.CheckItems = newItems
 }
 
-func (c *Checklist) AddDocument(d Document) {
-	newDocument := d
-	oldDocuments := c.Documents
-	newDocuments := append(oldDocuments, newDocument) 
-	c.Documents = newDocuments
-}
-
-func (c *Checklist) SetOwner(n string) {
-	c.Owner = n
+func (c *Checklist) SetOwner(u User) {
+	c.Owner = u
 }
 
 func (c *Checklist) AddUser(u User) {

@@ -15,57 +15,33 @@ type Transaction struct {
 	Checklist 	Checklist 	`json:"checklist"`
 	Marketing	string		`json:"marketing"`
 }
-/*
-func (t Transaction) Id() string {
-	var output = t.Id
-	return output
+
+func ImportTransaction(filename string) Transaction {
+	data :=LoadFromJSON(filename)
+	newTransaction :=JSONtoTransaction(data)
+    return newTransaction
 }
-*/
+
 func (t *Transaction) SetId(n string) {
 	t.Id = n
 }
-/*
-func (t Transaction) Name() string {
-	var output = t.Name
-	return output
-}
-*/
+
 func (t *Transaction) SetName(n string) {
 	t.Name = n
 }
-/*
-func (t Transaction) Client() string {
-	var output = t.Client
-	return output
-}
-*/
+
 func (t *Transaction) SetClient(n string) {
 	t.Client = n
 }
-/*
-func (t Transaction) ClientNo() uint32 {
-	var output = t.ClientNo
-	return output
-}
-*/
+
 func (t *Transaction) SetClientNo(n uint32) {
 	t.ClientNo = n
 }
-/*
-func (t Transaction) Matter() string {
-	var output = t.Matter
-	return output
-}
-*/
+
 func (t *Transaction) SetMatter(n string) {
 	t.Matter = n
 }
-/*
-func (t Transaction) MatterNo() uint32 {
-	var output = t.MatterNo
-	return output
-}
-*/
+
 func (t *Transaction) SetMatterNo(n uint32) {
 	t.MatterNo = n
 }
@@ -80,12 +56,7 @@ func (t *Transaction) AddDocument(d Document) {
 func (t *Transaction) SetOwner(u User) {
 	t.Owner = u
 }
-/*
-func (t Transaction) Owner() User {
-	var output = t.Owner
-	return output
-}
-*/
+
 func (t *Transaction) AddUser(u User) {
 	newUser := u
 	oldUsers := t.Users
@@ -96,18 +67,7 @@ func (t *Transaction) AddUser(u User) {
 func (t *Transaction) SetChecklist(c Checklist) {
 	t.Checklist = c
 }
-/*
-func (t Transaction) Checklist() Checklist {
-	var output = t.Checklist
-	return output
-}
-*/
-/*
-func (t Transaction) Marketing() string {
-	var output = t.Marketing
-	return output
-}
-*/
+
 func (t *Transaction) SetMarketing(n string) {
 	t.Marketing = n
 }

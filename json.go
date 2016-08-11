@@ -45,6 +45,22 @@ func LoadJSONClause(filename string) []byte {
 	return dat
 }
 
+//JSON Conversion Functions for entire Transactions
+
+func TransactionToJSON(t Transaction) []byte {
+	data, err := json.MarshalIndent(t, "", "    ")
+	if err !=nil {
+		log.Fatalf("JSON conversion failed: %s", err)
+	}
+	return data
+}
+
+func JSONtoTransaction(data []byte) Transaction {
+	var t Transaction
+	json.Unmarshal(data, &t)
+	return t
+}
+
 //JSON Conversion Functions for entire Documents
 
 func DocumentToJSON(d Document) []byte {
@@ -61,12 +77,31 @@ func JSONtoDocument(data []byte) Document {
 	return d
 }
 
-//Read and write entire JSON Document files
+//JSON Conversion Functions for entire Checklist
 
-func SaveJSONDocument(data []byte, filename string) {
+func ChecklistToJSON(c Checklist) []byte {
+	data, err := json.MarshalIndent(c, "", "    ")
+	if err !=nil {
+		log.Fatalf("JSON conversion failed: %s", err)
+	}
+	return data
+}
+
+func JSONtoChecklist(data []byte) Checklist {
+	var c Checklist
+	json.Unmarshal(data, &c)
+	return c
+}
+
+//Read and write JSON files
+
+func SaveToJSON(thing interface{}, filename string) {
+	data, err := json.MarshalIndent(thing, "", "    ")
+	if err !=nil {
+		log.Fatalf("JSON conversion failed: %s", err)
+	}
 	file := data
 	jsonFile, err := os.Create("./"+filename+".json")
-
 	if err !=nil {
 		fmt.Println(err)
 	}
@@ -75,7 +110,7 @@ func SaveJSONDocument(data []byte, filename string) {
 	jsonFile.Close()
 }
 
-func LoadJSONDocument(filename string) []byte {
+func LoadFromJSON(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
 	if err !=nil {
 		fmt.Println(err)

@@ -11,6 +11,12 @@ type Clause struct {
 	BftPty		Party		`json:"bftpty"` //If one or more parties benefit from a condition (to the exclusion of others), then BftPty identifies those parties
 }
 
+func ImportClause(filename string) Clause {
+	data :=LoadFromJSON(filename)
+	newClause :=JSONtoClause(data)
+    return  newClause
+}
+
 //Setter for Name attribute
 
 func (c *Clause) SetName(n string) {

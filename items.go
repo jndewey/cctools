@@ -7,12 +7,15 @@ package cctools
 type Item struct {
 	Id 			string		`json:"id"`
 	Name 		string		`json:"name"`
-	Owner		User		`json:"owner"`
-	Users		[]User 		`json:"users"`	
+	Owner		string		`json:"owner"`
 	Complete	bool 		`json:"complete"`
 	Status		string		`json:"status"`
 	PostClosing	bool		`json:"postClosing"`
 	//Add Deadline
+}
+
+func NewItem(n string) Item {
+    return Item{Id:"1", Name: n, Owner:"", Complete: false, Status: "Open", PostClosing: false}
 }
 
 func (i *Item) SetId(n string) {
@@ -23,17 +26,17 @@ func (i *Item) SetName(n string) {
 	i.Name = n
 }
 
-func (i *Item) SetOwner(u User) {
-	i.Owner = u
+func (i *Item) SetOwner(s string) {
+	i.Owner = s
 }
-
+/*
 func (i *Item) AddUser(u User) {
 	newUser := u
 	oldUsers := i.Users
 	newUsers := append(oldUsers, newUser) 
 	i.Users = newUsers
 }
-
+*/
 func (i *Item) SetComplete(b bool) {
 	i.Complete = b
 }
