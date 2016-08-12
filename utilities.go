@@ -35,11 +35,6 @@ func (c *Clause) ParseClause() {
 	}
 	varmap := c.Params
 	t.ExecuteTemplate(os.Stdout, "TextForTemplate", varmap)
-//	bytes, err := ioutil.ReadAll(os.Stdout)
-//	if err != nil {
-//		fmt.Println(err)
-//	}
-
 }
 
 // Compliance Utilities - Pass Documents and Clauses to method that takes a particular compliance module

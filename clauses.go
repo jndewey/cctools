@@ -13,20 +13,6 @@ type Clause struct {
 	MergedText	string					`json:"mergedtext"`
 }
 
-type Parameter struct {
-		Key 	string
-		Value 	string
-}
-/*
-func (c *Clause) AddClauseParam(key string, value string) {
-	var newParam Parameter
-	newParam.Key = key
-	newParam.Value = value
-	oldParams := c.Params
-	newwParams := append(oldParams, newParam) 
-	c.Params = newwParams
-}
-*/
 func ImportClause(filename string) Clause {
 	data :=LoadFromJSON(filename)
 	newClause :=JSONtoClause(data)
