@@ -3,16 +3,30 @@ package cctools
 //Creation of Clause struct and related methods; with JSON keys incorporated
 
 type Clause struct {
-	Name		string		`json:"name"`
-	Heading		string		`json:"heading"`
-	Text		string		`json:"text"`
-	Description	string 		`json:"description"`
-	Tags		[]string	`json:"tags"`
-	Type 		string		`json:"type"`
-	//Benefit		bool		`json:"benefit"` //This mainly applies to conditions; and if true, means one party is benefitted by condition
-	//BftPty		Party		`json:"bftpty"` //If one or more parties benefit from a condition (to the exclusion of others), then BftPty identifies those parties
+	Name		string					`json:"name"`
+	Heading		string					`json:"heading"`
+	Text		string					`json:"text"`
+	Description	string 					`json:"description"`
+	Tags		[]string				`json:"tags"`
+	Type 		string					`json:"type"`
+	Params		map[string]string		`json:"params"`
+	MergedText	string					`json:"mergedtext"`
 }
 
+type Parameter struct {
+		Key 	string
+		Value 	string
+}
+/*
+func (c *Clause) AddClauseParam(key string, value string) {
+	var newParam Parameter
+	newParam.Key = key
+	newParam.Value = value
+	oldParams := c.Params
+	newwParams := append(oldParams, newParam) 
+	c.Params = newwParams
+}
+*/
 func ImportClause(filename string) Clause {
 	data :=LoadFromJSON(filename)
 	newClause :=JSONtoClause(data)
@@ -56,19 +70,6 @@ func (c *Clause) SetType(t string) {
 	c.Type = t
 }
 
-/* Setter for Benefit attribute
-
-func (c *Clause) SetBenefit(b bool) {
-	c.Benefit = b
-}
-
-//Setter for Benefit attribute
-//Generally, the benefitted party has the right to waive a condition and proceed with the transaction
-
-func (c *Clause) SetBftPty(b Party) {
-	c.BftPty = b
-}
-*/
 //NOTE: This needs to be worked out because a changed clause will not be reflected in an existing documents because Clauses are a 
 // type value rather than pointers to Clauses.  So the edited clause is not sharing data with the Clause that is an attribute
 // in the Document object. 
