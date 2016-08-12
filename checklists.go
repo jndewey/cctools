@@ -12,7 +12,7 @@ type Checklist struct {
 
 func ImportChecklist(filename string) Checklist {
 	data :=LoadFromJSON(filename)
-	newChecklist :=JSONtoChecklist(data)
+	newChecklist :=JSONToChecklist(data)
     return  newChecklist
 }
 

@@ -87,7 +87,7 @@ func ChecklistToJSON(c Checklist) []byte {
 	return data
 }
 
-func JSONtoChecklist(data []byte) Checklist {
+func JSONToChecklist(data []byte) Checklist {
 	var c Checklist
 	json.Unmarshal(data, &c)
 	return c

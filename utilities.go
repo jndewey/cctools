@@ -19,13 +19,3 @@ func (c *Clause) CheckComplianceWith(m ComplianceModule) string {
 	return output
 }
 
-
-
-/* MakeTransaction function creates and initializes a new transaction based on a transaction template
-
-func MakeTransaction(tmp TransactionTemp, name string) Transaction {
-	newTransaction := tmp
-	newTransaction.Name = name
-	return newTransaction
-}
-*/

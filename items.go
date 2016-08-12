@@ -9,6 +9,7 @@ type Item struct {
 	Name 		string		`json:"name"`
 	Owner		string		`json:"owner"`
 	Complete	bool 		`json:"complete"`
+	Category	bool		`json:"category"`
 	Status		string		`json:"status"`
 	PostClosing	bool		`json:"postClosing"`
 	//Add Deadline
