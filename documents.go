@@ -10,6 +10,7 @@ type Document struct {
 	FormName	string		`json:"formName"`
 	Clauses		[]Clause 	`json:"clause"`
 	Parties		[]Party		`json:"party"`
+	Priority 	int 		`json:"priority"`
 }
 
 func ImportDocument(filename string) Document {
