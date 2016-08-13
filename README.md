@@ -38,7 +38,7 @@ APIs and documentation for all of the data structures and functionality are in p
 ## Installation and Code Example
 
 In the interim, you can download this package into your GOPATH and import it into your Go programs.  The following code is an example of how to build clauses and combine them to form a document, and then how to convert back and forth between JSON and a native Go struct.
-````
+````go
 package main 
 
 import "fmt"
