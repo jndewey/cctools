@@ -1,22 +1,24 @@
 package cctools
 
+import "gopkg.in/mgo.v2/bson"
+
 //Creation of Document struct and related methods
 
 type Document struct {
-	Id 			string		`json:"id"`
-	Name 		string		`json:"name"`
-	Description	string		`json:"description"`
-	FormNumber	int			`json:"formNumber"`
-	FormName	string		`json:"formName"`
-	Clauses		[]Clause 	`json:"clause"`
-	Parties		[]Party		`json:"party"`
-	Priority 	int 		`json:"priority"`
+	Id          bson.ObjectId `bson:"_id,omitempty"` //By default, bson is used because our implementations use MondoDB.
+	Name        string        `json:"name"`
+	Description string        `json:"description"`
+	FormNumber  int           `json:"formNumber"`
+	FormName    string        `json:"formName"`
+	Clauses     []Clause      `json:"clause"`
+	Parties     []Party       `json:"party"`
+	Priority    int           `json:"priority"`
 }
 
 func ImportDocument(filename string) Document {
-	data :=LoadFromJSON(filename)
-	newDocument :=JSONtoDocument(data)
-    return  newDocument
+	data := LoadFromJSON(filename)
+	newDocument := JSONtoDocument(data)
+	return newDocument
 }
 
 func (d *Document) SetId(n string) {
@@ -46,8 +48,6 @@ func Length(d Document) int {
 func (d *Document) AddClause(c Clause) {
 	newClause := c
 	oldClauses := d.Clauses
-	newClauses := append(oldClauses, newClause) 
+	newClauses := append(oldClauses, newClause)
 	d.Clauses = newClauses
 }
-
-

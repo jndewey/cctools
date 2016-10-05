@@ -6,7 +6,6 @@ import "os"
 import "fmt"
 import "io/ioutil"
 
-
 //JSON Conversion Functions for Individual Clauses
 
 func ClauseToJSON(c Clause) []byte {
@@ -15,7 +14,7 @@ func ClauseToJSON(c Clause) []byte {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
-} 
+}
 
 func JSONtoClause(data []byte) Clause {
 	var c Clause
@@ -27,9 +26,9 @@ func JSONtoClause(data []byte) Clause {
 
 func SaveJSONClause(data []byte, filename string) {
 	file := data
-	jsonFile, err := os.Create("./"+filename+".json")
+	jsonFile, err := os.Create("./" + filename + ".json")
 
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	defer jsonFile.Close()
@@ -39,7 +38,7 @@ func SaveJSONClause(data []byte, filename string) {
 
 func LoadJSONClause(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	return dat
@@ -49,7 +48,7 @@ func LoadJSONClause(filename string) []byte {
 
 func TransactionToJSON(t Transaction) []byte {
 	data, err := json.MarshalIndent(t, "", "    ")
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
@@ -65,7 +64,7 @@ func JSONtoTransaction(data []byte) Transaction {
 
 func DocumentToJSON(d Document) []byte {
 	data, err := json.MarshalIndent(d, "", "    ")
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
@@ -81,7 +80,7 @@ func JSONtoDocument(data []byte) Document {
 
 func ChecklistToJSON(c Checklist) []byte {
 	data, err := json.MarshalIndent(c, "", "    ")
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
@@ -97,12 +96,12 @@ func JSONToChecklist(data []byte) Checklist {
 
 func SaveToJSON(thing interface{}, filename string) {
 	data, err := json.MarshalIndent(thing, "", "    ")
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	file := data
-	jsonFile, err := os.Create("./"+filename+".json")
-	if err !=nil {
+	jsonFile, err := os.Create("./" + filename + ".json")
+	if err != nil {
 		fmt.Println(err)
 	}
 	defer jsonFile.Close()
@@ -112,7 +111,7 @@ func SaveToJSON(thing interface{}, filename string) {
 
 func LoadFromJSON(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	return dat

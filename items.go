@@ -1,22 +1,24 @@
 package cctools
 
+import "gopkg.in/mgo.v2/bson"
+
 // import "time" UNCOMMENT WHEN DEADLINE COMPLETED
 
 //Creation of Item struct and related methods
 
 type Item struct {
-	Id 			string		`json:"id"`
-	Name 		string		`json:"name"`
-	Owner		string		`json:"owner"`
-	Complete	bool 		`json:"complete"`
-	Category	bool		`json:"category"`
-	Status		string		`json:"status"`
-	PostClosing	bool		`json:"postClosing"`
+	Id          bson.ObjectId `bson:"_id,omitempty"` //By default, bson is used because our implementations use MondoDB.
+	Name        string        `json:"name"`
+	Owner       string        `json:"owner"`
+	Complete    bool          `json:"complete"`
+	Category    bool          `json:"category"`
+	Status      string        `json:"status"`
+	PostClosing bool          `json:"postClosing"`
 	//Add Deadline
 }
 
 func NewItem(n string) Item {
-    return Item{Id:"1", Name: n, Owner:"", Complete: false, Status: "Open", PostClosing: false}
+	return Item{Id: "1", Name: n, Owner: "", Complete: false, Status: "Open", PostClosing: false}
 }
 
 func (i *Item) SetId(n string) {
@@ -30,11 +32,12 @@ func (i *Item) SetName(n string) {
 func (i *Item) SetOwner(s string) {
 	i.Owner = s
 }
+
 /*
 func (i *Item) AddUser(u User) {
 	newUser := u
 	oldUsers := i.Users
-	newUsers := append(oldUsers, newUser) 
+	newUsers := append(oldUsers, newUser)
 	i.Users = newUsers
 }
 */

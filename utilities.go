@@ -4,7 +4,6 @@ import "html/template"
 import "fmt"
 import "bytes"
 
-
 // Text Generators -- These tools convert Clauses and Documents into final text documents by combining parameter values with
 // text templates for each clause or an entire Document.
 
@@ -29,7 +28,7 @@ func (c *Clause) ParseClause() {
 //Pass a Document to a compliance module to determine compliance
 
 func (d *Document) CheckComplianceWith(m ComplianceModule) string {
-	// this is just placeholder code + work in regex / parsing algorithms 
+	// this is just placeholder code + work in regex / parsing algorithms
 	output := "Now make it do something!" + " " + m.Name
 	return output
 }
@@ -37,8 +36,7 @@ func (d *Document) CheckComplianceWith(m ComplianceModule) string {
 //Pass a Clause to a compliance module to determine compliance
 
 func (c *Clause) CheckComplianceWith(m ComplianceModule) string {
-	// this is just placeholder code + work in regex / parsing algorithms 
+	// this is just placeholder code + work in regex / parsing algorithms
 	output := "Now make it do something!" + " " + c.Name
 	return output
 }
-

@@ -5,10 +5,10 @@ import "encoding/json"
 import "os"
 import "fmt"
 import "io/ioutil"
+
 // import "github.com/ghodss/yaml" // REMOVE COMMENT WHEN FINISHED WITH YAML TOOLS
 
-
-//Note that these YAML tools all use Go's standard library's JSON package for all functionality 
+//Note that these YAML tools all use Go's standard library's JSON package for all functionality
 //except that JSON inputs and outputs are converted to and from YAML with ghodss/yaml package
 
 //YAML Conversion Functions for Individual Clauses
@@ -19,7 +19,7 @@ func ClauseToYAML(c Clause) []byte {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
-} 
+}
 
 func YAMLtoClause(data []byte) Clause {
 	var c Clause
@@ -31,9 +31,9 @@ func YAMLtoClause(data []byte) Clause {
 
 func SaveYAMLClause(data []byte, filename string) {
 	file := data
-	jsonFile, err := os.Create("./"+filename+".json")
+	jsonFile, err := os.Create("./" + filename + ".json")
 
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	defer jsonFile.Close()
@@ -43,7 +43,7 @@ func SaveYAMLClause(data []byte, filename string) {
 
 func LoadYAMLClause(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	return dat
@@ -53,7 +53,7 @@ func LoadYAMLClause(filename string) []byte {
 
 func DocumentToYAML(d Document) []byte {
 	data, err := json.MarshalIndent(d, "", "    ")
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("JSON conversion failed: %s", err)
 	}
 	return data
@@ -69,9 +69,9 @@ func YAMLtoDocument(data []byte) Document {
 
 func SaveYAMLDocument(data []byte, filename string) {
 	file := data
-	jsonFile, err := os.Create("./"+filename+".json")
+	jsonFile, err := os.Create("./" + filename + ".json")
 
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	defer jsonFile.Close()
@@ -81,7 +81,7 @@ func SaveYAMLDocument(data []byte, filename string) {
 
 func LoadYAMLDocument(filename string) []byte {
 	dat, err := ioutil.ReadFile(filename)
-	if err !=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	return dat

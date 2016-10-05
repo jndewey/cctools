@@ -1,16 +1,16 @@
 package cctools
 
 import (
-	"os"
-	"fmt"
 	"encoding/xml"
+	"fmt"
 	"io"
+	"os"
 )
 
 // this will include utilities to assist with working with .docx files
 
 type Plane struct {
-	Plane	string	`xml:"plane"`
+	Plane string `xml:"plane"`
 }
 
 func ParseXML(filename string) {
@@ -21,11 +21,11 @@ func ParseXML(filename string) {
 	}
 	defer xmlFile.Close()
 	/*
-	b, err := ioutil.ReadAll(xmlFile)
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		return
-	}
+		b, err := ioutil.ReadAll(xmlFile)
+		if err != nil {
+			fmt.Println("Error reading file:", err)
+			return
+		}
 	*/
 	decoder := xml.NewDecoder(xmlFile)
 	for {
@@ -49,7 +49,3 @@ func ParseXML(filename string) {
 		}
 	}
 }
-
-
-
-

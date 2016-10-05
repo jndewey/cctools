@@ -1,22 +1,24 @@
 package cctools
 
+import "gopkg.in/mgo.v2/bson"
+
 //Creation of User struct and related methods
 
 type Party struct {
-	Id 			string 		`json:"id"`
-	Name 		string 		`json:"name"`
-	Definition	string		`json:"definition"`
-	IsEntity	bool		`json:"isEntity"`
-	IsReceiver	bool		`json:"isReceiver"`
-	StateOrg	string		`json:"stateOrg"`
-	EntityType	string		`json:"entityType"`
-	DigitalID	string		`json:"digitalID"`
-	Email		string 		`json:"email"`
-	AddressOne	string 		`json:"addressOne"`
-	AddressTwo	string 		`json:"addressTwo"`
-	AddressCity	string 		`json:"adressCity"`
-	AddressSt	string 		`json:"addressSt"`
-	AddressZip	string 		`json:"addressZip"`
+	Id          bson.ObjectId `bson:"_id,omitempty"` //By default, bson is used because our implementations use MondoDB.
+	Name        string        `json:"name"`
+	Definition  string        `json:"definition"`
+	IsEntity    bool          `json:"isEntity"`
+	IsReceiver  bool          `json:"isReceiver"`
+	StateOrg    string        `json:"stateOrg"`
+	EntityType  string        `json:"entityType"`
+	DigitalID   string        `json:"digitalID"`
+	Email       string        `json:"email"`
+	AddressOne  string        `json:"addressOne"`
+	AddressTwo  string        `json:"addressTwo"`
+	AddressCity string        `json:"adressCity"`
+	AddressSt   string        `json:"addressSt"`
+	AddressZip  string        `json:"addressZip"`
 }
 
 func (p *Party) SetId(n string) {
