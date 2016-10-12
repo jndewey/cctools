@@ -20,9 +20,11 @@ func ImportChecklist(filename string) Checklist {
 	return newChecklist
 }
 
+/*
 func (c *Checklist) SetId(n string) {
 	c.Id = n
 }
+*/
 
 func (c *Checklist) SetName(n string) {
 	c.Name = n

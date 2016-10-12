@@ -20,10 +20,11 @@ type User struct {
 	AccessRights []string      `json:"accessRights"`
 }
 
+/*
 func (u *User) SetId(n string) {
 	u.Id = n
 }
-
+*/
 func (u *User) SetFirstName(n string) {
 	u.FirstName = n
 }

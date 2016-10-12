@@ -24,10 +24,11 @@ func ImportTransaction(filename string) Transaction {
 	return newTransaction
 }
 
+/*
 func (t *Transaction) SetId(n string) {
 	t.Id = n
 }
-
+*/
 func (t *Transaction) SetName(n string) {
 	t.Name = n
 }

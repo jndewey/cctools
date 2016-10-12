@@ -21,10 +21,11 @@ func ImportDocument(filename string) Document {
 	return newDocument
 }
 
+/*
 func (d *Document) SetId(n string) {
 	d.Id = n
 }
-
+*/
 func (d *Document) SetName(n string) {
 	d.Name = n
 }

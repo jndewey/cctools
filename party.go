@@ -21,10 +21,11 @@ type Party struct {
 	AddressZip  string        `json:"addressZip"`
 }
 
+/*
 func (p *Party) SetId(n string) {
 	p.Id = n
 }
-
+*/
 func (p *Party) SetName(n string) {
 	p.Name = n
 }

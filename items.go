@@ -17,14 +17,16 @@ type Item struct {
 	//Add Deadline
 }
 
+/*
 func NewItem(n string) Item {
 	return Item{Id: "1", Name: n, Owner: "", Complete: false, Status: "Open", PostClosing: false}
 }
-
+*/
+/*
 func (i *Item) SetId(n string) {
 	i.Id = n
 }
-
+*/
 func (i *Item) SetName(n string) {
 	i.Name = n
 }
