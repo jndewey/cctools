@@ -110,9 +110,9 @@ func SaveToJSON(thing interface{}, filename string) {
 }
 
 func LoadFromJSON(filename string) []byte {
-	dat, err := ioutil.ReadFile(filename)
+	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
 	}
-	return dat
+	return data
 }

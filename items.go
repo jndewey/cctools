@@ -14,6 +14,7 @@ type Item struct {
 	Category    bool          `json:"category"`
 	Status      string        `json:"status"`
 	PostClosing bool          `json:"postClosing"`
+	ContentID   string        `json:"contentid`
 	//Add Deadline
 }
 
